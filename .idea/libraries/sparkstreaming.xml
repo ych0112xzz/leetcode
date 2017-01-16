@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="sparkstreaming">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../kafka-wordcount/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../kafka-wordcount/lib" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../kafka-wordcount/lib" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../kafka-wordcount/lib" recursive="false" type="SOURCES" />
+  </library>
+</component>

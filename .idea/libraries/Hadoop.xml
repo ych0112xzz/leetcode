@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Hadoop">
+    <CLASSES>
+      <root url="file://E:/SoftWare/eclipse-java-luna-SR1-win32-x86_64/eclipse/Hadoop" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://E:/SoftWare/eclipse-java-luna-SR1-win32-x86_64/eclipse/Hadoop" />
+    </SOURCES>
+    <jarDirectory url="file://E:/SoftWare/eclipse-java-luna-SR1-win32-x86_64/eclipse/Hadoop" recursive="false" />
+    <jarDirectory url="file://E:/SoftWare/eclipse-java-luna-SR1-win32-x86_64/eclipse/Hadoop" recursive="false" type="SOURCES" />
+  </library>
+</component>
