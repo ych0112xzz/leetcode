@@ -20,7 +20,6 @@ public class SwapNodesinPairs {
 
     public static ListNode swapPairs(ListNode head) {
         ListNode result = head;
-        ListNode tmp = head;
 
         if (head == null) {
             return null;
