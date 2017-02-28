@@ -42,7 +42,7 @@ public class UniqueBinarySearchTreesII {
                     for(int r=0;r<rNode.size();r++){
                         TreeNode root = new TreeNode(j + 1);
                         root.left = (TreeNode) lNode.get(l);
-                        root.right = nodeClone((TreeNode) rNode.get(r),j+1);
+                        root.right = nodeClone((TreeNode)  rNode.get(r),j+1);
                         result.add(root);
 
                     }

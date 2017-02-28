@@ -25,6 +25,9 @@ public class TreeNode {
         printTree(p);
     }
 
+    /*
+    打印树
+     */
     public static void printTree(TreeNode root) {
         if (root == null) {
             System.out.println("Empty Tree!");
