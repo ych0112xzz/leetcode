@@ -9,11 +9,11 @@ import java.util.regex.Pattern;
 public class StringtoIntegeratoi {
     public static void main(String[] args) {
         String str = "-2";
-        int result = myAtoi(str);
+        int result = new StringtoIntegeratoi().myAtoi(str);
         System.out.println(result);
     }
 
-    public static int myAtoi(String str) {
+    /*public static int myAtoi(String str) {
         int MAX = Integer.MAX_VALUE;
         int MIN = Integer.MIN_VALUE;
         System.out.println(MAX + "\t" + MIN);
@@ -48,5 +48,37 @@ public class StringtoIntegeratoi {
         }
 
         return result;
+    }*/
+
+    public int myAtoi(String str) {
+        if(str.length()==0){
+            return 0;
+        }
+        char[] data=str.toCharArray();
+        int index=0;
+        //去除前面空格
+        while(data[index]==' '&&index<data.length){
+            index++;
+        }
+        int sign=1;
+        if(data[index]=='+'||data[index]=='-'){
+            sign=data[index]=='+'?1:-1;
+            index++;
+        }
+
+        int total=0;
+        while(index<data.length){
+            int i=data[index]-'0';
+            if(i<0||i>9){
+                break;
+            }
+            if(Integer.MAX_VALUE/10<total||(Integer.MAX_VALUE-i)/10<total){
+                return sign==-1?Integer.MIN_VALUE:Integer.MAX_VALUE;
+            }else{
+                total=total*10+i;
+            }
+            index++;
+        }
+        return total*sign;
     }
 }

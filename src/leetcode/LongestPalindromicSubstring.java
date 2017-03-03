@@ -14,7 +14,10 @@ public class LongestPalindromicSubstring {
         System.out.println("RUN Time:"+(endTime-startTime)+"ms");
     }
 
-    public static String longestPalindrome(String s) {
+    /*
+    暴力解法
+     */
+   /* public static String longestPalindrome(String s) {
         //int start=0;
         //int end=s.length()-1;
         String result;
@@ -45,5 +48,34 @@ public class LongestPalindromicSubstring {
         }
 
         return false;
+    }*/
+
+    public static String longestPalindrome(String s) {
+        int length = s.length();
+        String result = "";
+        int len = 0;
+        for (int i = 0; i < length; i++) {
+            String temp = getPalindromeString(s, i, i);//回文字符长度串是奇数
+            if (temp.length() > result.length()) {
+                result = temp;
+            }
+            temp = getPalindromeString(s, i, i + 1);//回文字符长度串是偶数
+            if (temp.length() > result.length()) {
+                result = temp;
+            }
+
+        }
+
+
+        return result;
+    }
+
+    //以某字符为中心向两边展开
+    public static String getPalindromeString(String s, int i, int j) {
+        while (j < s.length() && i >= 0 && s.charAt(i) == s.charAt(j)) {
+            i--;
+            j++;
+        }
+        return s.substring(i + 1, j);
     }
 }
