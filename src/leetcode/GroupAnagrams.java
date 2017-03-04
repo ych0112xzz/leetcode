@@ -47,6 +47,7 @@ public class GroupAnagrams {
             String key = it.next().toString();
             listValue.add(hashmap.get(key));
         }
-        return listValue;
+//        return listValue;
+        return new ArrayList<>(hashmap.values());
     }
 }

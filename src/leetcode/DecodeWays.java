@@ -89,7 +89,7 @@ public class DecodeWays {
 
         int[] memo = new int[n+1];
         memo[n]  = 1;
-        memo[n-1] = s.charAt(n-1) != '0' ? 1 : 0;
+        memo[n-1] = s.charAt(n-1) != '0' ? 1 : 0;//memo[n-1]表示s只有一个字符
 
         for (int i = n - 2; i >= 0; i--)
             if (s.charAt(i) == '0') continue;

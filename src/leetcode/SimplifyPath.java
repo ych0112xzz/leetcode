@@ -22,7 +22,6 @@ public class SimplifyPath {
         Stack<String> stack=new Stack<>();
         String[] array = path.split("/");
         for(int i=0;i<array.length;i++){
-            System.out.println(stack.toString());
             if(array[i].equals("..")){
                 if(!stack.isEmpty()) {
                     stack.pop();

@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 
-public class Reverse_Word_In_A_String {
+public class ReverseWordInAString {
     public static void main(String[] args) {
         String word = " the";
         String result = revWord(word);

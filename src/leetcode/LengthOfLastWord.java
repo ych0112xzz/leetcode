@@ -12,7 +12,7 @@ public class LengthOfLastWord {
 		System.out.println(len);
 	}
 	
-	public static int lengthOfLastWord(String s){
+	/*public static int lengthOfLastWord(String s){
 		if(!s.matches("[a-zA-Z\\s]+")){
 			return 0;
 		}
@@ -23,9 +23,11 @@ public class LengthOfLastWord {
 		String word = ann[ann.length-1];
 		System.out.println(word);
 		return word.length();
-		
-		
-		
-	}
+	}*/
 
+	public static int lengthOfLastWord(String s) {
+		s=s.trim();
+		int last=s.lastIndexOf(' ')+1;
+		return s.length()-last;
+	}
 }
