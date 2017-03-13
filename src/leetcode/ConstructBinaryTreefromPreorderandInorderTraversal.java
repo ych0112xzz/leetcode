@@ -51,6 +51,7 @@ public class ConstructBinaryTreefromPreorderandInorderTraversal {
         stack.push(root);
         for(int i=1;i<len;i++) {
             TreeNode node = stack.peek();
+            //以node为根节点，如果当前节点的索引值小于node的索引值，则为node的左节点，
             int preIndex = hashMap.get(node.val);
             int index = hashMap.get(preorder[i]);
             TreeNode cur = new TreeNode(preorder[i]);

@@ -68,7 +68,7 @@ public class Permutations {
    }*/
 
     /*
-    *第二个BFS，对于调换后的for，如{1,2,3},[1]    [1,2][2,1]  [3,1,2][1,3,2][1,2,3][3,2,1][2,3,1][2,1,3]
+    *第二个BFS，对于调换后的for，如{1,2,3}：    [1] [1,2][2,1]  [3,1,2][1,3,2][1,2,3][3,2,1][2,3,1][2,1,3]
     * */
    /* public static List<List<Integer>> permute(int[] nums) {
         LinkedList<LinkedList<Integer>> result = new LinkedList<>();

@@ -19,7 +19,6 @@ public class CombinationSumII {
         Arrays.sort(candidates);
         List<List<Integer>> result = new ArrayList<>();
         List<Integer> list = new ArrayList<>();
-        int val = -1;
         combinationSum2(candidates, 0, target, result,list);
         return result;
     }
