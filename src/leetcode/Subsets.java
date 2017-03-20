@@ -1,6 +1,8 @@
 package leetcode;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by ych0112xzz on 2016/12/26.
@@ -20,23 +22,23 @@ public class Subsets {
         List<Integer> list = new ArrayList<>();
         result.add(new ArrayList<Integer>(list));
         int len = nums.length;
-//        for (int k = 0; k < len; k++) {//去掉循环，令k=len,在递归时就加进result里,k参数实际未用
-            subsets(nums, 0, len, len, result, list);
-//        }
+// for (int k = 0; k < len; k++) {//去掉循环，令k=len,在递归时就加进result里,k参数实际未用
+        subsets(nums, 0, len, result, list);
+//    }
+
 
         return result;
 
     }
 
-    private void subsets(int[] nums, int index, int len, int k, List<List<Integer>> result, List<Integer> list) {
+    private void subsets(int[] nums, int index, int len, List<List<Integer>> result, List<Integer> list) {
         if (list.size() >= len) {
-//            result.add(new ArrayList<Integer>(list));去掉for循环后注释掉
             return;
         }
         for (int j = index; j < len; j++) {
             list.add(nums[j]);
             result.add(new ArrayList<Integer>(list));
-            subsets(nums, j + 1, len, k, result, list);
+            subsets(nums, j + 1, len, result, list);
             list.remove(list.size() - 1);
         }
 

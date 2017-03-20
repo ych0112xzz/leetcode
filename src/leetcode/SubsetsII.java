@@ -56,6 +56,7 @@ public class SubsetsII {
         List<List<Integer>> prev = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
             List<List<Integer>> cur = new ArrayList<>();
+            //上一次同一数字计算过，这次不再计算，只和相同数字计算
             if (i > 0 && nums[i] == nums[i - 1]) {
                 for (List<Integer> list : prev){
                     List<Integer> tmp = new ArrayList<>(list);

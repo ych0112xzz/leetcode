@@ -23,7 +23,7 @@ public class RemoveDuplicatesfromSortedListII {
     }
 
 
-    public ListNode deleteDuplicates(ListNode head) {
+    /*public ListNode deleteDuplicates(ListNode head) {
         if(head==null){
             return head;
         }
@@ -66,5 +66,40 @@ public class RemoveDuplicatesfromSortedListII {
         }
 
         return result.next;
+    }*/
+    public ListNode deleteDuplicates(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+//        // 只有一个结点
+//        if (head.next == null) {
+//            return head;
+//        }
+        // 临时的头结点
+        ListNode root = new ListNode(0);
+        root.next = head;
+        // 记录前驱结点
+        ListNode prev = root;
+        // 记录当前处理的结点
+        ListNode node = head;
+        while (node != null && node.next != null) {
+            // 有重复结点，与node值相同的结点都要删除
+            if (node.val == node.next.val) {
+                // 找到下一个不同值的节点，注意其有可能也是重复节点
+                while (node.next != null && node.next.val == node.val) {
+                    node = node.next;
+                }
+                // 指向下一个节点，prev.next也可能是重复结点
+                // 所以prev不要移动到下一个结点
+                prev.next = node.next;
+            }
+            // 相邻两个值不同，说明node不可删除，要保留
+            else {
+                prev.next = node;
+                prev = prev.next;
+            }
+            node = node.next;
+        }
+        return root.next;
     }
 }

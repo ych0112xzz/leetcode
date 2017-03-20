@@ -1,6 +1,8 @@
 package leetcode;
 
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -10,15 +12,15 @@ public class WordBreak {
 
     public static void main(String[] args){
         String s ="goalspecial";
-        Set<String> wordDict = new HashSet<String>();
+        List<String> wordDict = new LinkedList<String>();
         wordDict.add("go");
         //wordDict.add("goal");
         wordDict.add("goals");
         wordDict.add("special");
-        System.out.println(wordBreak(s, wordDict));
+        System.out.println(new WordBreak().wordBreak(s, wordDict));
     }
 
-    public static boolean wordBreak(String s, Set<String> wordDict) {
+    /*public static boolean wordBreak(String s, Set<String> wordDict) {
         int index =0;
         if(wordDict.contains(s)){
             return true;
@@ -42,5 +44,23 @@ public class WordBreak {
             }
         }
         return false;
+    }*/
+
+    /*
+    dp
+     */
+    public boolean wordBreak(String s, List<String> dict) {
+        boolean[] result = new boolean[s.length() + 1];
+        result[0] = true;
+        for(int i=1;i<=s.length();i++) {
+            for(int j=0;j<i;j++) {
+                if (result[j] && dict.contains(s.substring(j, i))) {
+                    result[i] = true;
+                    break;
+                }
+            }
+        }
+        return result[s.length()];
     }
+
 }

@@ -70,21 +70,22 @@ public class Permutations {
     /*
     *第二个BFS，对于调换后的for，如{1,2,3}：    [1] [1,2][2,1]  [3,1,2][1,3,2][1,2,3][3,2,1][2,3,1][2,1,3]
     * */
-   /* public static List<List<Integer>> permute(int[] nums) {
-        LinkedList<LinkedList<Integer>> result = new LinkedList<>();
-        result.add(new LinkedList<Integer>());
-        for(int i=0;i<nums.length;i++) {//i代表当前长度
-            LinkedList<LinkedList<Integer>> cur = new LinkedList<>();
-            for(int j=0;j<=i;j++) {//j代表插入元素位置
-                for(LinkedList<Integer> list:result) {*//*这两个for循环可以替换*//*
-                    LinkedList<Integer> tmp=new LinkedList<>(list);
-                    tmp.add(j,nums[i]);
-                    cur.add(tmp);
+   /* public List<List<Integer>> permute(int[] nums) {
+        LinkedList<ArrayList<Integer>> result = new LinkedList<>();
+        result.add(new ArrayList<Integer>());
+        for(int i=0;i<nums.length;i++){
+            int n=result.size();
+            for(int j=0;j<n;j++) {
+                List<Integer> list = result.poll();
+                for (int k = 0; k <= list.size(); k++) {
+                    ArrayList<Integer> cur = new ArrayList<>(list);
+                    cur.add(k, nums[i]);
+                    result.offer(cur);
                 }
             }
-            result=cur;
         }
         return (List)result;
+    }
 
     }*/
 

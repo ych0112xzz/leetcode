@@ -6,9 +6,9 @@ import java.util.LinkedList;
  * Created by ych0112xzz on 2016/12/27.
  */
 public class TreeNode {
-    TreeNode left;
-    TreeNode right;
-    int val;
+    public TreeNode left;
+    public TreeNode right;
+    public int val;
 
     public TreeNode(int x) {
         this.val = x;

@@ -11,9 +11,9 @@ public class CourseSchedule {
 
     class Course {
         int id;
-        int topNum;
+        int topNum;//存放拓扑编号，即该课程被修的顺序（不唯一）
         int indegree;
-        ArrayList<Course> adjList;
+        ArrayList<Course> adjList;//存储指向当前course所有course
 
         Course(int id, int topNum, int indegree) {//此题topnum无用
             this.id = id;

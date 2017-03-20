@@ -83,7 +83,7 @@ public class Triangle {
         return result;
     }*/
 
-    //Bottom-Up 6ms，实质与上面解法相同，但此方法可以修改为控件复杂度为O(1)
+    //Bottom-Up 6ms，实质与上面解法相同，但此方法可以修改为空间复杂度为O(1)
     /*public class Solution {
         public int minimumTotal1(List<List<Integer>> triangle) {
             int[] nums = new int[triangle.size()];
