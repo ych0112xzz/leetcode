@@ -13,7 +13,7 @@ public class MultiplyStrings {
                 int tmp= (num1.charAt(i)-'0')*(num2.charAt(j)-'0');
                 int pos1=i+j;
                 int pos2=i+j+1;
-                int sum=tmp+dp[pos2];
+                int sum=tmp+dp[pos2];//加上上一轮遗留的低位数
                 dp[pos1] +=sum/10;
                 dp[pos2] =sum%10;
             }

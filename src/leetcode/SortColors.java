@@ -58,7 +58,7 @@ public class SortColors {
     /*
     * 精巧解法，但效率低
     * */
-    public void sortColors(int[] nums) {
+    /*public void sortColors(int[] nums) {
         int k = 3;
         // k pointers pointing at next position to set
         int[] pointers = new int[k];
@@ -76,5 +76,25 @@ public class SortColors {
         // pointers: 1  3  5, nums = [0 1 1 2 2,2 0], n = 1, i = 2, 1
         // pointers: 1  3  6, nums = [0 1 1 2 2 2,0], n = 2, i = 2
         // pointers: 2  4  7, nums = [0 0 1 1 2 2 2], n = 2, i = 2
+    }*/
+
+    public void sortColors(int[] nums) {
+        int start=0;
+        int end = nums.length - 1;
+        for(int i=0;i<=end;i++) {
+            if (nums[i] == 0) {
+                swap(nums, i, start++);
+            } else if (nums[i] == 1) {
+                swap(nums,i--,end--);
+            }
+        }
+    }
+
+
+
+    public void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
     }
 }

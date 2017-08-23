@@ -10,8 +10,8 @@ import java.util.List;
 public class Combinations {
     public static void main(String[] args) {
         long start = System.nanoTime();
-        int n = 3;
-        int k = 3;
+        int n = 100000;
+        int k = 10;
         List<List<Integer>> result = combine(n, k);
         System.out.println(result);
         long end = System.nanoTime();

@@ -19,40 +19,20 @@ public class SwapNodesinPairs {
     }
 
     public static ListNode swapPairs(ListNode head) {
-        ListNode result = head;
-
-        if (head == null) {
-            return null;
+        ListNode res=new ListNode(0);
+        ListNode cur=res;
+        cur.next=head;
+        ListNode left=head,right=head;
+        while(left!=null&&left.next!=null){
+            right=left.next;
+            ListNode tmp=right.next;
+            cur.next=right;
+            left.next=right.next;
+            right.next=left;
+            cur=left;
+            left=tmp;
         }
-        ListNode h1 = head;
-//        if (h1.next == null) {
-//            return result;
-//        }
-        ListNode h2 = head.next;
-        ListNode pre = null;
-        int i = 0;
-        while (head != null) {
-            h1 = head;
-            if (h1.next == null) {
-                return result;
-            }
-            h2 = h1.next;
-            if (i == 0) {
-                result = h2;
-            }
-
-            ListNode h3 = h2.next;
-            h2.next = h1;
-            if (pre != null) {
-                pre.next = h2;
-            }
-            h1.next = h3;
-            pre = h1;
-            head = h3;
-            i++;
-
-
-        }
-        return result;
+        return res.next;
     }
+
 }

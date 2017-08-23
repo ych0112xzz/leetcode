@@ -1,16 +1,40 @@
 package interview;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.HashMap;
 import java.util.Scanner;
-import java.util.Stack;
 
 /**
  * Created by ych0112xzz on 2017/3/18.
  */
 public class Main {
-    public static void main(String[] args){
-        boolean result=false;
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        String[] memberIds = s.nextLine().split(",");
+        String[] tradeIds = s.nextLine().split(",");
+        String[] tradeAmount = s.nextLine().split(",");
+        String[] cartIds = s.nextLine().split(",");
+        int amount = s.nextInt();
+
+        getMemIds(memberIds, tradeIds, tradeAmount, cartIds, amount);
+    }
+
+    public static void getMemIds(String[] memberIds, String[] tradeIds, String[] tradeAmount, String[] cartIds, int amount) {
+        HashMap<String, String> hashMap = new HashMap<>();
+        String result = "";
+        for(int i=0, j = 0;i<tradeIds.length && j <tradeAmount.length;i++ ){
+            hashMap.put(tradeIds[i], tradeAmount[i]);
+        }
+        for(int i=0;i<cartIds.length;i++) {
+            if (hashMap.containsKey(cartIds[i]) && Integer.valueOf(hashMap.get(cartIds[i])) >= amount) {
+                result=result+cartIds[i]+" ";
+            }
+        }
+        result=result.trim();
+        System.out.println(result);
+    }
+}
+    //public static void main(String[] args){
+       /* boolean result=false;
         Scanner sc = new Scanner(System.in);
        // Stack<String> stack = new Stack<>();
         String s = "";
@@ -27,18 +51,18 @@ public class Main {
             }
             //stack.push(str);
         }
-       /* for (String str : data) {
+       *//* for (String str : data) {
             if (!(str.equals(stack.pop()))) {
                 result = true;
                 break;
             }
-        }*/
+        }*//*
         if (result) {
             System.out.println("0");
         }else{
             System.out.println("1");
         }
-    }
+    }*/
 
     /*public static void main(String[] args){
         boolean result=false;
@@ -146,4 +170,4 @@ public class Main {
         return max;
     }*/
 
-}
+//}

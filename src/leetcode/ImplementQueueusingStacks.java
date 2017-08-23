@@ -7,7 +7,7 @@ import java.util.Stack;
  */
 public class ImplementQueueusingStacks {
 
-    Stack<Integer> back = new Stack<>();
+   /* Stack<Integer> back = new Stack<>();
     Stack<Integer> front = new Stack<>();
 
     // Push element x to the back of queue.
@@ -46,6 +46,50 @@ public class ImplementQueueusingStacks {
     public boolean empty() {
 
         return back.isEmpty()&&front.isEmpty();
+    }*/
+
+
+    Stack<Integer> in ;
+    Stack<Integer> out;
+    /** Initialize your data structure here. */
+    public ImplementQueueusingStacks() {
+        in=new Stack<>();
+        out=new Stack<>();
+    }
+
+    /** Push element x to the back of queue. */
+    public void push(int x) {
+        in.push(x);
+    }
+
+    /** Removes the element from in front of queue and returns that element. */
+    public int pop() {
+        int result=0;
+        /*if(out.isEmpty()){
+            while(!in.isEmpty()){
+                out.push(in.pop());
+            }
+        }*/
+        peek();
+        result=out.pop();
+        return result;
+    }
+
+    /** Get the front element. */
+    public int peek() {
+        int result=0;
+        if(out.isEmpty()){
+            while(!in.isEmpty()){
+                out.push(in.pop());
+            }
+        }
+        result=out.peek();
+        return result;
+    }
+
+    /** Returns whether the queue is empty. */
+    public boolean empty() {
+        return in.isEmpty()&&out.isEmpty();
     }
 
 }

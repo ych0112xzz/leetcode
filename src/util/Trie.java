@@ -24,30 +24,30 @@ public class Trie {
         trie.insert("chinaha");
         trie.insert("her");
         trie.insert("know");
-        HashMap<String,Integer> map=trie.getAllwords();
+        HashMap<String, Integer> map = trie.getAllwords();
 
-        for(String key:map.keySet()){
-            System.out.println(key+" 出现: "+ map.get(key)+"次");
+        for (String key : map.keySet()) {
+            System.out.println(key + " 出现: " + map.get(key) + "次");
         }
 
 
-        map=trie.getWordsForPrefix("chin");
+        map = trie.getWordsForPrefix("chin");
 
         System.out.println("\n\n包含chin（包括本身）前缀的单词及出现次数：");
-        for(String key:map.keySet()){
-            System.out.println(key+" 出现: "+ map.get(key)+"次");
+        for (String key : map.keySet()) {
+            System.out.println(key + " 出现: " + map.get(key) + "次");
         }
 
-        if(trie.search("xiaoming")==false){
+        if (trie.search("xiaoming") == false) {
             System.out.println("\n\n字典树中不存在：xiaoming ");
         }
     }
 
     private class TrieNode {
         TrieNode[] childrens = new TrieNode[26];
-        int frequency;
-        int prefix_num;
-        char val;
+        int frequency;//该字串的重复数目,频数
+        int prefix_num;//以该子串为前缀的单词数
+        char val;//可以没有，数组下标可以知道val值
         boolean isLeaf;
 
         public TrieNode(char val) {
@@ -119,8 +119,8 @@ public class Trie {
             }
         }
         for (int i = 0; i < cur.childrens.length; i++) {
-            if(cur.childrens[i]!=null) {
-                String tmp = s + (char)(i + 'a');
+            if (cur.childrens[i] != null) {
+                String tmp = s + (char) (i + 'a');
                 hashMap.putAll(helper(cur.childrens[i], tmp));
             }
         }
@@ -135,10 +135,10 @@ public class Trie {
         return getWordsForPrefix(root, prefix);
     }
 
-    private HashMap<String,Integer> getWordsForPrefix(TrieNode cur, String prefix) {
+    private HashMap<String, Integer> getWordsForPrefix(TrieNode cur, String prefix) {
         HashMap<String, Integer> hashMap = new HashMap<>();
         char[] data = prefix.toLowerCase().toCharArray();
-        for(int i=0;i<data.length;i++) {
+        for (int i = 0; i < data.length; i++) {
             if (cur.childrens[data[i] - 'a'] == null) {
                 return hashMap;
             }

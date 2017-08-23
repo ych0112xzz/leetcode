@@ -10,7 +10,7 @@ import java.util.List;
 public class CombinationSumII {
 
     public static void main(String[] args) {
-        int candidates[] = {10,1,2,7,6,1,5,3,1,2,4};
+        int candidates[] = {10, 1, 2, 7, 6, 1, 5, 3, 1, 2, 4};
         int target = 8;
         System.out.println(new CombinationSumII().combinationSum2(candidates, target));
     }
@@ -19,7 +19,7 @@ public class CombinationSumII {
         Arrays.sort(candidates);
         List<List<Integer>> result = new ArrayList<>();
         List<Integer> list = new ArrayList<>();
-        combinationSum2(candidates, 0, target, result,list);
+        combinationSum2(candidates, 0, target, result, list);
         return result;
     }
 
@@ -31,14 +31,14 @@ public class CombinationSumII {
         if (target < 0) {
             return;
         }
-        int val = -1;
+        // int val = -1;
         for (int i = start; i < candidates.length; i++) {
-            if (candidates[i]==val) {
+            if (i > start && candidates[i] == candidates[i - 1]) {
                 continue;
             }
             list.add(candidates[i]);
             combinationSum2(candidates, i + 1, target - candidates[i], result, list);
-            val = list.remove(list.size() - 1);
+            list.remove(list.size() - 1);
         }
     }
 }

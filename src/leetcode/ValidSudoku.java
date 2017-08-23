@@ -1,6 +1,5 @@
 package leetcode;
 
-import java.util.BitSet;
 import java.util.HashSet;
 
 /**
@@ -9,11 +8,11 @@ import java.util.HashSet;
 public class ValidSudoku {
 
 
-    public static void main(String[] args){
-        char[][] data={{'.','8','7','6','5','4','3','2','1'},{'2','.','.','.','.','.','.','.','.'},{'3','.','.','.','.','.','.','.','.'},
-            {'4','.','.','.','.','.','.','.','.'},{'5','.','.','.','.','.','.','.','.'},
-            {'6','.','.','.','.','.','.','.','.'},{'7','.','.','.','.','.','.','.','.'},
-            {'8','.','.','.','.','.','.','.','.'},{'9','.','.','.','.','.','.','.','.'}};
+    public static void main(String[] args) {
+        char[][] data = {{'.', '8', '7', '6', '5', '4', '3', '2', '1'}, {'2', '.', '.', '.', '.', '.', '.', '.', '.'}, {'3', '.', '.', '.', '.', '.', '.', '.', '.'},
+                {'4', '.', '.', '.', '.', '.', '.', '.', '.'}, {'5', '.', '.', '.', '.', '.', '.', '.', '.'},
+                {'6', '.', '.', '.', '.', '.', '.', '.', '.'}, {'7', '.', '.', '.', '.', '.', '.', '.', '.'},
+                {'8', '.', '.', '.', '.', '.', '.', '.', '.'}, {'9', '.', '.', '.', '.', '.', '.', '.', '.'}};
         System.out.println(new ValidSudoku().isValidSudoku(data));
     }
 
@@ -21,7 +20,7 @@ public class ValidSudoku {
     /*
     * 用二维布尔变量遍历一次
     * */
-    public boolean isValidSudoku(char[][] board) {
+    /*public boolean isValidSudoku(char[][] board) {
         boolean[][] rowCheck = new boolean[9][9];
         boolean[][] colCheck = new boolean[9][9];
         boolean[][] boxCheck = new boolean[9][9];
@@ -54,23 +53,23 @@ public class ValidSudoku {
             }
         }
         return true;
-    }
+    }*/
 
-   /* public boolean isValidSudoku(char[][] board) {
+    public boolean isValidSudoku(char[][] board) {
         HashSet seen = new HashSet();
-        for (int i=0; i<9; i++) {
+        for (int i = 0; i < 9; i++) {
             System.out.println(i);
-            for (int j=0; j<9; ++j) {
+            for (int j = 0; j < 9; ++j) {
                 char number = board[i][j];
                 if (number != '.')
                     if (!seen.add(number + " in row " + i) ||
                             !seen.add(number + " in column " + j) ||
-                            !seen.add(number + " in block " + i/3 + "-" + j/3))
+                            !seen.add(number + " in block " + i / 3 + "-" + j / 3))
                         return false;
             }
         }
         return true;
-    }*/
+    }
 
     /*
     * 三次循环判断

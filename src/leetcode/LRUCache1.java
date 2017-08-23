@@ -16,7 +16,7 @@ public class LRUCache1 extends LinkedHashMap<Integer,Integer> {
     //HashMap<Integer, Integer> hashMap = new HashMap<>();
 
     public LRUCache1(int capacity) {
-        super(capacity, (float) 0.75, true);
+        super(capacity, (float) 0.75, true);//true表示访问顺序，false表示插入顺序
         this.capacity = capacity;
 
       //  hashMap = new LinkedHashMap<Integer,Integer>(capacity,(float)0.75,true);

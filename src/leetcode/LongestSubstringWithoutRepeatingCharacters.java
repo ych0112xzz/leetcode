@@ -38,6 +38,8 @@ public class LongestSubstringWithoutRepeatingCharacters {
             }
             j++;
         }
+
+        //while循环在else结束
         if (result < j - i) {
             return j - i;
         }

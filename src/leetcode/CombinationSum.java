@@ -9,8 +9,17 @@ import java.util.*;
  */
 public class CombinationSum {
     public static void main(String[] args) {
-        int[] candidates = {1, 3, 6, 2,7};
-        int target = 7;
+        int[] candidates = {1, 3, 6, 2};
+        int target = 12;
+        List<List<Integer>> dp = combinationSum(candidates, target);
+        for(int i=0;i<dp.size();i++) {
+            String result = "";
+            //Collections.sort(dp.get(i));
+            for(int j=0;j<dp.get(i).size();j++) {
+                result += dp.get(i).get(j)+" ";
+            }
+            System.out.println(result.trim());
+        }
         System.out.println(new CombinationSum().combinationSum(candidates, target));
     }
 
@@ -71,7 +80,7 @@ public class CombinationSum {
     /*
     * BFS+DP
     * */
-    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+    public static List<List<Integer>> combinationSum(int[] candidates, int target) {
         Arrays.sort(candidates);
         List<List<Integer>>[] dp =new ArrayList[target+1] ;
         for(int i=1;i<=target;i++) {

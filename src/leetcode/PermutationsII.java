@@ -8,7 +8,7 @@ import java.util.List;
  * Created by ych0112xzz on 2016/12/26.
  */
 public class PermutationsII {
-    /* public List<List<Integer>> permuteUnique(int[] nums) {
+     public List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         if (nums.length == 0) {
             return result;
@@ -31,9 +31,9 @@ public class PermutationsII {
             cur.add(i, nums[index]);
             permuteUnique(nums, index + 1, result, cur);
         }
-    }*/
+    }
 
-    public List<List<Integer>> permuteUnique(int[] nums) {
+    /*public List<List<Integer>> permuteUnique(int[] nums) {
         LinkedList<ArrayList<Integer>> result = new LinkedList<>();
         result.add(new ArrayList<Integer>());
         for(int i=0;i<nums.length;i++){
@@ -51,5 +51,5 @@ public class PermutationsII {
             }
         }
         return (List)result;
-    }
+    }*/
 }
